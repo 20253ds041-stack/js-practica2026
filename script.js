@@ -51,3 +51,12 @@ const numerosMutiplicados = listaNumeros.map( (numeroEnElQueVoy) =>{
     }
 );
 console.log(numerosMutiplicados);
+
+const numerosEnObjetos = listaNumeros.map(
+    (numeroEnElQueVoy) =>{
+        return {
+           valor: numeroEnElQueVoy //Creamos un objeto con una nueva funcion
+        };
+    }
+);
+console.log (numerosEnObjetos);

@@ -70,3 +70,22 @@ const numerosFiltrados = numerosX.filter(
     }
 )
 console.log(numerosFiltrados);
+
+const personas = [
+    {
+        nombre: "Neri",
+        edad:19
+    },{
+        nombre: "Mateo",
+        edad:18 
+    },{
+        nombre: "Asael",
+        edad:15
+    }
+];
+const personasMayores = personas.filter(
+    (personaX) => {
+        return personaX.edad>17;
+    }
+)
+console.log(personasMayores);

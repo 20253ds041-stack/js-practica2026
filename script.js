@@ -89,3 +89,23 @@ const personasMayores = personas.filter(
     }
 )
 console.log(personasMayores);
+
+//funciones reduce sumas o acumulaciones
+
+const numerosY = [3,6,9,12,16];
+/*const numerosYSuma = numerosY.reduce(
+    (variablePersistente, elemento) => {
+        variablePersistente = variablePersistente + elemento;
+        return variablePersistente;
+
+    },
+    0
+);  // Esta es otra manera de escribir la funcion anterior*/
+const numerosYSuma = numerosY.reduce(
+    (variablePersistente, elemento) => 
+       variablePersistente + elemento
+    ,
+    0
+);
+
+console.log(numerosYSuma);

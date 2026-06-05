@@ -2,7 +2,7 @@ const nombre ="Kristal";
 let apellido = "Trinidad";
 console.log (nombre);
 console.log(apellido);
-
+//funcion map puede mandar los objetos de otra manera
 // nombre = "Neri"; genera error ya que nombre es una constante
 apellido ="Martínez";
 console.log(apellido);

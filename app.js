@@ -23,6 +23,10 @@ const btnAprobados = document.getElementById("btn-aprobados");
 const btnReprobados = document.getElementById("btn-reprobados");
 const btnPromedio = document.getElementById("btn-promedio");
 const seccionPromedio = document.getElementById("resultado-promedio")
+//Seccion de agregar estudiante
+const inputNombre = document.getElementById("input-nombre");
+const inputNota = document.getElementById("input-nota");
+const btnAgregar = document.getElementById("btn-agregar");
 
 
 //Funciones
@@ -50,7 +54,6 @@ const renderizarLista = (estudiantesApintar) =>{
     );
     seccionEstudiantes.innerHTML = (listaTarjetas.join("")); //joint nos ayudara a agregar cosas en este caso los elementos strings 
 }
-
 
 //Eventos
 
@@ -102,12 +105,33 @@ btnPromedio.addEventListener('click',
             },
         0);
         const promedio =sumaNotas/ estudiantes.length;
-        seccionPromedio.innerHTML= "Promedio: "+ toFixedtrunc(promedio,2);
+        seccionPromedio.innerHTML= "Promedio: "+ toFixedtrunc(promedio,2); //redondeo de decimales 
         seccionPromedio.style.display = "block";
 
 
 });
 
+
+btnAgregar.addEventListener('click',
+    () => {
+        const nombre = inputNombre.value.trim(); //nos ayuda a quitar los espacios innecesarios en el texto
+        const nota = parseInt(inputNota.value.trim()); //parse int para convertir los strings a enteros
+
+        if (nombre === "" || isNaN(nota)|| nota <0 || nota >100){ //el isNaN se referia o nos ayudara a saber si el numero o lo ingresado es algo válido
+            alert ("Por favor, ingresa un nombre válido y una nota entre 0 a 100")
+            return;
+        }
+        const nuevoEstudiante ={
+            id: estudiantes.length+1,
+            nombre: nombre,
+            nota : nota, //en estos casos donde se llamen igual podremos solo poner nombre, nota}
+        };
+        estudiantes.push(nuevoEstudiante); // el push nos ayudara a meter el nuevo objeto a la lista de estudiantes
+        renderizarLista(estudiantes)
+        inputNombre = "";
+        inputNota = "";
+    }
+);
 
 //Llamadas a funciones
 

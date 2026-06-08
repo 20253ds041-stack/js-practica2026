@@ -21,8 +21,8 @@ const seccionEstudiantes = document.getElementById("lista-estudiantes");
 const btnTodos = document.getElementById("btn-todos");
 const btnAprobados = document.getElementById("btn-aprobados");
 const btnReprobados = document.getElementById("btn-reprobados");
-const btnPromedio = document.getElementById("btn-pronmedio");
-const seccionPromedio = document.getElementById("resultado-promedio");
+const btnPromedio = document.getElementById("btn-promedio");
+const seccionPromedio = document.getElementById("resultado-promedio")
 
 
 //Funciones
@@ -83,6 +83,31 @@ btnReprobados.addEventListener('click',
           renderizarLista(aprobados)
     }
 );
+
+        //10 elevado al número de decimales que deseas conservar
+
+       const toFixedtrunc = (num, decimales) => {
+            //multiplica, cota decimales restantes y resuelve y vuelve a dividir
+            const factor =Math.pow (10, decimales);
+            //retorna el string con el formato fijo final sin redondear
+            const truncado =Math.trunc (num*factor)/factor;
+            return truncado.toFixed(decimales);
+       };
+
+btnPromedio.addEventListener('click',
+    ()=>{
+        const sumaNotas = estudiantes.reduce(
+            (valorPersistente, estudiante) => {
+                return valorPersistente+estudiante.nota;
+            },
+        0);
+        const promedio =sumaNotas/ estudiantes.length;
+        seccionPromedio.innerHTML= "Promedio: "+ toFixedtrunc(promedio,2);
+        seccionPromedio.style.display = "block";
+
+
+});
+
 
 //Llamadas a funciones
 

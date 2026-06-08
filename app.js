@@ -128,8 +128,8 @@ btnAgregar.addEventListener('click',
         };
         estudiantes.push(nuevoEstudiante); // el push nos ayudara a meter el nuevo objeto a la lista de estudiantes
         renderizarLista(estudiantes)
-        inputNombre = "";
-        inputNota = "";
+        inputNombre.value = "";
+        inputNota.value = "";
     }
 );
 
